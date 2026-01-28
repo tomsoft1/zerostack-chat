@@ -1,0 +1,9 @@
+{
+  "name": "zerostack-chat",
+  "version": "1.0.0",
+  "description": "Demo multi-room chat app built on ZeroStack BaaS",
+  "private": true,
+  "dependencies": {
+    "zerostack-sdk": "github:tomsoft1/zerostack-sdk"
+  }
+}
