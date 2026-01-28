@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZeroStack Chat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Auth Screen -->
+  <div id="auth-screen" class="screen">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="logo">Z</div>
+        <h1>ZeroStack Chat</h1>
+        <p class="subtitle">Real-time chat powered by ZeroStack</p>
+      </div>
+
+      <div class="auth-tabs">
+        <button class="tab active" data-tab="login">Sign In</button>
+        <button class="tab" data-tab="register">Register</button>
+      </div>
+
+      <form id="auth-form">
+        <div id="auth-error" class="error" hidden></div>
+        <input type="email" id="auth-email" placeholder="Email" required>
+        <input type="password" id="auth-password" placeholder="Password" required>
+        <input type="password" id="auth-confirm" placeholder="Confirm password" hidden>
+        <button type="submit" id="auth-submit">Sign In</button>
+      </form>
+
+      <div class="divider"><span>or</span></div>
+
+      <button id="guest-btn" class="guest-btn">Continue as Guest</button>
+    </div>
+  </div>
+
+  <!-- Room Screen -->
+  <div id="room-screen" class="screen" hidden>
+    <div class="room-card">
+      <div class="auth-header">
+        <div class="logo">Z</div>
+        <h1>Chat Rooms</h1>
+        <p class="subtitle" id="room-user-label"></p>
+      </div>
+      <div id="room-list" class="room-list"></div>
+      <button id="create-room-btn" class="create-room-btn" hidden>+ Create Room</button>
+      <button id="room-logout-btn" class="guest-btn">Logout</button>
+    </div>
+  </div>
+
+  <!-- Chat Screen -->
+  <div id="chat-screen" class="screen" hidden>
+    <header class="chat-header">
+      <div class="header-left">
+        <button id="back-btn" class="back-btn">&larr;</button>
+        <div class="logo-small">Z</div>
+        <div>
+          <h2 id="room-title">Room</h2>
+          <span id="connection-status" class="status">Connecting...</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <span id="user-label"></span>
+        <button id="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <div id="messages" class="messages"></div>
+
+    <form id="message-form" class="message-form">
+      <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off" required>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script src="http://localhost:3002/socket.io/socket.io.js"></script>
+  <script src="zerostack-sdk.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
